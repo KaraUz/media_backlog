@@ -25,11 +25,11 @@ public class TabbedMediaListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed_media_list);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        mTextMessage = findViewById(R.id.message);
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.media_item_recycle_list);
+        mRecyclerView = findViewById(R.id.media_item_recycle_list);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -61,12 +61,12 @@ public class TabbedMediaListActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), R.string.title_home, Toast.LENGTH_SHORT).show();
                     //mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
-                    Toast.makeText(getApplicationContext(), R.string.title_dashboard, Toast.LENGTH_SHORT).show();
+                case R.id.navigation_games:
+                    Toast.makeText(getApplicationContext(), R.string.title_games, Toast.LENGTH_SHORT).show();
                     //mTextMessage.setText(R.string.title_dashboard);
                     return true;
-                case R.id.navigation_notifications:
-                    Toast.makeText(getApplicationContext(), R.string.title_notifications, Toast.LENGTH_SHORT).show();
+                case R.id.navigation_movies:
+                    Toast.makeText(getApplicationContext(), R.string.title_movies, Toast.LENGTH_SHORT).show();
                     //mTextMessage.setText(R.string.title_notifications);
                     return true;
             }

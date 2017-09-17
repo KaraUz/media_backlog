@@ -1,10 +1,13 @@
 package com.uz.karolis.mediabacklog.adapters;
 
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.uz.karolis.mediabacklog.R;
 
@@ -20,10 +23,17 @@ public class MediaRecycleListAdapter extends RecyclerView.Adapter<MediaRecycleLi
     // you provide access to all the views for a data item in a view holder
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        public TextView mTextView;
-        public ViewHolder(TextView v) {
+        public CardView mCardView;
+        public ViewHolder(CardView v) {
             super(v);
-            mTextView = v;
+            mCardView = v;
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), "You selected an item!!!", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
@@ -37,8 +47,8 @@ public class MediaRecycleListAdapter extends RecyclerView.Adapter<MediaRecycleLi
     public MediaRecycleListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                                  int viewType) {
         // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycle_list_item_text, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.recycle_list_item_card, parent, false);
         // set the view's size, margins, paddings and layout parameters
         //...
         ViewHolder vh = new ViewHolder(v);
@@ -50,7 +60,7 @@ public class MediaRecycleListAdapter extends RecyclerView.Adapter<MediaRecycleLi
     public void onBindViewHolder(ViewHolder holder, int position)  {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.mTextView.setText(mDataset[position]);
+        //holder.mCardView.setText(mDataset[position]);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
