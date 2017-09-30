@@ -6,24 +6,31 @@ package com.uz.karolis.mediabacklog.data_objects;
  */
 
 public class MediaItem {
-    private String title;
+    private long id;
+    private String name;
     private String description;
-    private int userRating;
-    private int backlogPriority;
+    private MediaType type;
+    private String imageURL;
+    private MediaBacklogItem backlogItem;
+    private MediaRatingItem ratingItem;
 
-    public MediaItem(String title, String description, int userRating, int backlogPriority) {
-        this.title = title;
+    public MediaItem(long id, String name, String description, MediaType type, String imageURL,
+                     MediaBacklogItem backlogItem, MediaRatingItem ratingItem) {
+        this.id = id;
+        this.name = name;
         this.description = description;
-        this.userRating = userRating;
-        this.backlogPriority = backlogPriority;
+        this.type = type;
+        this.imageURL = imageURL;
+        this.backlogItem = backlogItem;
+        this.ratingItem = ratingItem;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -34,19 +41,43 @@ public class MediaItem {
         this.description = description;
     }
 
-    public int getUserRating() {
-        return userRating;
+    public MediaType getType() {
+        return type;
     }
 
-    public void setUserRating(int userRating) {
-        this.userRating = userRating;
+    public void setType(MediaType type) {
+        this.type = type;
     }
 
-    public int getBacklogPriority() {
-        return backlogPriority;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public void setBacklogPriority(int backlogPriority) {
-        this.backlogPriority = backlogPriority;
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public MediaBacklogItem getBacklogItem() {
+        return backlogItem;
+    }
+
+    public void setBacklogItem(MediaBacklogItem backlogItem) {
+        this.backlogItem = backlogItem;
+    }
+
+    public MediaRatingItem getRatingItem() {
+        return ratingItem;
+    }
+
+    public void setRatingItem(MediaRatingItem ratingItem) {
+        this.ratingItem = ratingItem;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
